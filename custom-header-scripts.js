@@ -382,32 +382,33 @@ const style = document.createElement('style');
 
 (function () {
 
-    const targetIds = ['7282302', '7285790','7288004'];
+    const targetIds = ['7282302', '7285790', '7288004'];
     const currentUrl = window.location.href;
 
     const shouldApplyStyle = targetIds.some(id => currentUrl.includes(id));
 
     if (!shouldApplyStyle) return;
 
-    document.addEventListener('DOMContentLoaded', function () {
+    // FIX: previously wrapped in a `document.addEventListener('DOMContentLoaded', ...)`
+    // callback that could register AFTER the DOMContentLoaded event had already fired
+    // (common when this script is injected after page load), so the style was never
+    // applied. Style-tag injection into <head> doesn't need to wait for the DOM to be
+    // "ready" anyway, so the listener has been removed entirely.
+    const style = document.createElement('style');
 
-        const style = document.createElement('style');
+    style.textContent = `
+    /* Seder RSVP */
+    #ContentBody {
+        background: #F5F5DC;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        max-width: 900px;
+        margin: 20px auto;
+    }
+    `;
 
-        style.textContent = `
-        /* Seder RSVP */
-        #ContentBody {
-            background: #F5F5DC;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            max-width: 900px;
-            margin: 20px auto;
-        }
-        `;
-
-        document.head.appendChild(style);
-
-    });
+    document.head.appendChild(style);
 
 })();
 
@@ -566,4 +567,4 @@ document.head.appendChild(style);
         `;
         document.head.appendChild(style);
     }
-})(); // <--- Added the missing call here
+})();
