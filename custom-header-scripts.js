@@ -1,3 +1,212 @@
+(function () {
+  // 1. List every page ID this block should apply to.
+  //    Find the ID in the page URL, e.g. .../aid/6915892/...
+  var targetIds = [
+    '6999362',
+    '6191113',
+	'7002791',
+	'7002850',
+  ];
+
+  // 2. Check if the current URL contains any of those IDs.
+  var matches = targetIds.some(function (id) {
+    return document.location.href.indexOf(id) > -1;
+  });
+
+  if (!matches) return;
+
+  // 3. Add your CSS here.
+  var style = document.createElement('style');
+  style.innerHTML = `
+        .cco_templateless_page #chabad_main_content {
+            background: url('https://chabadqueenanne.com/media/images/1330/tcCv13308772.png') !important;
+            background-size: cover !important;
+            background-position: bottom !important;
+        }
+        .footer, .footer a {
+            background-color: #28578b !important;
+            color: white !important;
+        }
+
+        /* Hide the template's default generated header image */
+        .chabad_header img.header-bg-img {
+            display: none !important;
+        }
+
+        /* Apply your custom header background */
+        #chabad_head .chabad_header {
+            background-image: url('https://www.chabadqueenanne.com/media/images/1382/Ovxs13825476.png') !important;
+			background-repeat: no-repeat !important;
+			background-size: cover !important;
+			background-position: 46% center !important;
+			background-color: #ede3d4 !important;
+			height: clamp(360px, 32vw, 525px) !important;
+		}
+        .cco_templateless_page .chabad_header, .chabad_header {
+            background-blend-mode: normal !important;
+        }
+        .chabad_header div {
+            visibility: hidden;
+        }
+        div.chabad_left_column {
+            background: transparent;
+        }
+        .large_banner, .sPromo-wrap {
+            border: 2px solid #28578b;
+        }
+        .large_banner .bannerCta button {
+            background: #28578b;
+            border: 3px solid #28578b;
+        }
+        .large_banner .big {
+            color: #28578b;
+            font-weight: bold;
+        }
+        .large_banner .wrapper-message {
+            margin-block: 1.5em !important;
+        }
+        .sPromo-wrap .caption {
+            color: black !important;
+        }
+        .sPromo-wrap img {
+            border: 0px !important;
+        }
+        .custom_message .message {
+            color: black !important;
+        }
+        .custom_message .title {
+            color: #28578b !important;
+        }
+        .custom_message .read-more_link a {
+            color: #28578b !important;
+            border: 3px solid #28578b !important;
+        }
+        .custom_message .read-more_link a:hover {
+            background: #28578b !important;
+            color: white !important;
+        }
+        .prepResource-title, .co_calendar_head div, .features_title {
+            font-size: 25pt !important;
+            color: #28578b !important;
+        }
+        .prep-title, .feature_caption a {
+            color: #28578b !important;
+        }
+        .zmanim .zman-1, .zmanim .zman-2 {
+            border-radius: 10px !important;
+            background: #28578b !important;
+            margin: 5px 0px !important;
+        }
+        #co_calendar div.co_calendar_body .item.item.first,
+        #co_calendar div.co_calendar_body .item:nth-child(3),
+        #co_calendar div.co_calendar_body .item:nth-child(6),
+        #co_calendar div.co_calendar_body .item:nth-child(8) {
+            background: #28578b;
+        }
+        #co_calendar div.co_calendar_body .item:nth-child(2),
+        #co_calendar div.co_calendar_body .item:nth-child(4),
+        #co_calendar div.co_calendar_body .item:nth-child(5),
+        #co_calendar div.co_calendar_body .item:nth-child(7) {
+            background: #28578b;
+        }
+        .footer, .footer a {
+            background: #28578b;
+            color: white !important;
+        }
+        .cco_templateless_template a,
+        .div#chabad_head .chabad_navigator_bar,
+        #menu .item,
+        #navigation,
+        #menu a {
+            background: #28578b !important;
+        }
+        #menu a {
+            color: white !important;
+            border: 0px !important;
+        }
+        .selected a {
+            text-decoration: underline !important;
+        }
+        #menu .item {
+            color: transparent !important;
+        }
+        .titleIcon img {
+            width: 125px !important;
+            display: none !important;
+        }
+        .co_calendar_head:before,
+        .pesach-resources .titleIcon {
+            display: none !important;
+        }
+        div#chabad_body_content {
+            background: transparent !important;
+        }
+        .co_calendar_text {
+            background-color: transparent !important;
+        }
+
+        /* Icons */
+        .content-area-parent > .custom_message .title:before {
+            content: '';
+            background: url('https://chabadqueenanne.com/media/images/1331/esQg13310306.png');
+            display: block;
+            width: 75px;
+            height: 75px;
+            background-size: contain;
+            filter: contrast(94%);
+            margin: 0 auto;
+        }
+        .content-area-parent > .custom_message.appeal .title:before {
+            display: none;
+        }
+        #co_calendar:before {
+            content: '';
+            background: url('https://chabadqueenanne.com/media/images/1331/Vkhp13310307.png');
+            display: block;
+            width: 75px;
+            height: 75px;
+            background-size: contain;
+            filter: contrast(94%);
+            margin: 0 auto;
+        }
+        .latest_features .features_title.titleIcon:before {
+            content: '';
+            background: url('https://chabadqueenanne.com/media/images/1331/Xouo13310308.png');
+            display: block;
+            width: 75px;
+            height: 75px;
+            background-size: contain;
+            filter: contrast(94%);
+            margin: 0 auto;
+        }
+
+        @media all and (max-width: 500px) {
+            .chabad_header {
+                height: 200px !important;
+            }
+            .headerTitle {
+                display: none;
+            }
+            .body.section_root .bh {
+                right: 25px !important;
+                color: white !important;
+            }
+        }
+  `;
+  document.head.appendChild(style);
+
+  // 4. (Optional) Add any JS behavior here — DOM edits, removals, etc.
+  //    Wrap DOM-dependent code so it waits for the page if needed:
+  function run() {
+    // e.g. document.querySelector('.some-element')?.remove();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+
 if ( document.location.href.indexOf('6996290') > -1) {
 const style = document.createElement('style');
     style.innerHTML = `
@@ -252,8 +461,6 @@ document.head.appendChild(style);
 
 }
 
-
-
 (function() {
     // 1. Define the list of IDs
     const targetIds = ['7282299', '7282300', '7282301', '7282302','7285790', '7288004'];
@@ -360,693 +567,3 @@ document.head.appendChild(style);
         document.head.appendChild(style);
     }
 })(); // <--- Added the missing call here
-
-
-if ( document.location.href.indexOf('6999362') > -1) {
-const style = document.createElement('style');
-    style.innerHTML = `
-        .cco_templateless_page #chabad_main_content {
-            background: url('/media/images/1331/DRHp13315981.png') !important;
-            background-size: cover !important;
-            background-position: bottom !important;
-        }
-        .footer, .footer a {
-            background-color: #28578b !important;
-            color: white !important;
-        }
-        .chabad_header {
-            background: url('/media/images/1382/Ovxs13825476.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-color: #28578b;
-        }
-        .cco_templateless_page .chabad_header, .chabad_header {
-            background-blend-mode: normal !important;
-        }
-        .chabad_header div {
-            visibility: hidden;
-        }
-        div.chabad_left_column {
-            background: transparent;
-        }
-        .large_banner, .sPromo-wrap {
-            border: 2px solid #28578b;
-        }
-        .large_banner .bannerCta button {
-            background: #28578b;
-            border: 3px solid #28578b;
-        }
-        .large_banner .big {
-            color: #28578b;
-            font-weight: bold;
-        }
-        .large_banner .wrapper-message {
-            margin-block: 1.5em !important;
-        }
-        .sPromo-wrap .caption {
-            color: black !important;
-        }
-        .sPromo-wrap img {
-            border: 0px !important;
-        }
-        .custom_message .message {
-            color: black !important;
-        }
-        .custom_message .title {
-            color: #28578b !important;
-        }
-        .custom_message .read-more_link a {
-            color: #28578b !important;
-            border: 3px solid #28578b !important;
-        }
-        .custom_message .read-more_link a:hover {
-            background: #28578b !important;
-            color: white !important;
-        }
-        .prepResource-title, .co_calendar_head div, .features_title {
-            font-size: 25pt !important;
-            color: #28578b !important;
-        }
-        .prep-title, .feature_caption a {
-            color: #28578b !important;
-        }
-        .zmanim .zman-1, .zmanim .zman-2 {
-            border-radius: 10px !important;
-            background: #28578b !important;
-            margin: 5px 0px !important;
-        }
-        #co_calendar div.co_calendar_body .item.item.first,
-        #co_calendar div.co_calendar_body .item:nth-child(3),
-        #co_calendar div.co_calendar_body .item:nth-child(6),
-        #co_calendar div.co_calendar_body .item:nth-child(8) {
-            background: #28578b;
-        }
-        #co_calendar div.co_calendar_body .item:nth-child(2),
-        #co_calendar div.co_calendar_body .item:nth-child(4),
-        #co_calendar div.co_calendar_body .item:nth-child(5),
-        #co_calendar div.co_calendar_body .item:nth-child(7) {
-            background: #28578b;
-        }
-        .footer, .footer a {
-            background: #28578b;
-            color: white !important;
-        }
-        .cco_templateless_template a,
-        .div#chabad_head .chabad_navigator_bar,
-        #menu .item,
-        #navigation,
-        #menu a {
-            background: #28578b !important;
-        }
-        #menu a {
-            color: white !important;
-            border: 0px !important;
-        }
-        .selected a {
-            text-decoration: underline !important;
-        }
-        #menu .item {
-            color: transparent !important;
-        }
-        .titleIcon img {
-            width: 125px !important;
-            display: none !important;
-        }
-        .co_calendar_head:before,
-        .pesach-resources .titleIcon {
-            display: none !important;
-        }
-        div#chabad_body_content {
-            background: transparent !important;
-        }
-        .co_calendar_text {
-            background-color: transparent !important;
-        }
-
-        /* Icons */
-        .content-area-parent > .custom_message .title:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/esQg13310306.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .content-area-parent > .custom_message.appeal .title:before {
-            display: none;
-        }
-        #co_calendar:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Vkhp13310307.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .latest_features .features_title.titleIcon:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Xouo13310308.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-
-        @media all and (max-width: 500px) {
-            .chabad_header {
-                height: 200px !important;
-            }
-            .headerTitle {
-                display: none;
-            }
-            .body.section_root .bh {
-                right: 25px !important;
-                color: white !important;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-
-if ( document.location.href.indexOf('6191113') > -1) {
-const style = document.createElement('style');
-    style.innerHTML = `
-        .cco_templateless_page #chabad_main_content {
-            background: url('https://chabadqueenanne.com/media/images/1331/jzVy13310282.png') !important;
-            background-size: cover !important;
-            background-position: bottom !important;
-        }
-        .footer, .footer a {
-            background-color: #28578b !important;
-            color: white !important;
-        }
-        .chabad_header {
-            background: url('/media/images/1382/Ovxs13825476.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-color: #28578b;
-        }
-        .cco_templateless_page .chabad_header, .chabad_header {
-            background-blend-mode: normal !important;
-        }
-        .chabad_header div {
-            visibility: hidden;
-        }
-        div.chabad_left_column {
-            background: transparent;
-        }
-        .large_banner, .sPromo-wrap {
-            border: 2px solid #28578b;
-        }
-        .large_banner .bannerCta button {
-            background: #28578b;
-            border: 3px solid #28578b;
-        }
-        .large_banner .big {
-            color: #28578b;
-            font-weight: bold;
-        }
-        .large_banner .wrapper-message {
-            margin-block: 1.5em !important;
-        }
-        .sPromo-wrap .caption {
-            color: black !important;
-        }
-        .sPromo-wrap img {
-            border: 0px !important;
-        }
-        .custom_message .message {
-            color: black !important;
-        }
-        .custom_message .title {
-            color: #28578b !important;
-        }
-        .custom_message .read-more_link a {
-            color: #28578b !important;
-            border: 3px solid #28578b !important;
-        }
-        .custom_message .read-more_link a:hover {
-            background: #28578b !important;
-            color: white !important;
-        }
-        .prepResource-title, .co_calendar_head div, .features_title {
-            font-size: 25pt !important;
-            color: #28578b !important;
-        }
-        .prep-title, .feature_caption a {
-            color: #28578b !important;
-        }
-        .zmanim .zman-1, .zmanim .zman-2 {
-            border-radius: 10px !important;
-            background: #28578b !important;
-            margin: 5px 0px !important;
-        }
-        #co_calendar div.co_calendar_body .item.item.first,
-        #co_calendar div.co_calendar_body .item:nth-child(3),
-        #co_calendar div.co_calendar_body .item:nth-child(6),
-        #co_calendar div.co_calendar_body .item:nth-child(8) {
-            background: #28578b;
-        }
-        #co_calendar div.co_calendar_body .item:nth-child(2),
-        #co_calendar div.co_calendar_body .item:nth-child(4),
-        #co_calendar div.co_calendar_body .item:nth-child(5),
-        #co_calendar div.co_calendar_body .item:nth-child(7) {
-            background: #28578b;
-        }
-        .footer, .footer a {
-            background: #28578b;
-            color: white !important;
-        }
-        .cco_templateless_template a,
-        .div#chabad_head .chabad_navigator_bar,
-        #menu .item,
-        #navigation,
-        #menu a {
-            background: #28578b !important;
-        }
-        #menu a {
-            color: white !important;
-            border: 0px !important;
-        }
-        .selected a {
-            text-decoration: underline !important;
-        }
-        #menu .item {
-            color: transparent !important;
-        }
-        .titleIcon img {
-            width: 125px !important;
-            display: none !important;
-        }
-        .co_calendar_head:before,
-        .pesach-resources .titleIcon {
-            display: none !important;
-        }
-        div#chabad_body_content {
-            background: transparent !important;
-        }
-        .co_calendar_text {
-            background-color: transparent !important;
-        }
-
-        /* Icons */
-        .content-area-parent > .custom_message .title:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/esQg13310306.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .content-area-parent > .custom_message.appeal .title:before {
-            display: none;
-        }
-        #co_calendar:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Vkhp13310307.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .latest_features .features_title.titleIcon:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Xouo13310308.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-
-        @media all and (max-width: 500px) {
-            .chabad_header {
-                height: 200px !important;
-            }
-            .headerTitle {
-                display: none;
-            }
-            .body.section_root .bh {
-                right: 25px !important;
-                color: white !important;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-if ( document.location.href.indexOf('7002791') > -1) {
-const style = document.createElement('style');
-    style.innerHTML = `
-        .cco_templateless_page #chabad_main_content {
-            background: url('https://chabadqueenanne.com/media/images/1331/jzVy13310282.png') !important;
-            background-size: cover !important;
-            background-position: bottom !important;
-        }
-        .footer, .footer a {
-            background-color: #28578b !important;
-            color: white !important;
-        }
-        .chabad_header {
-            background: url('/media/images/1331/DRHp13315981.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-color: #28578b;
-        }
-        .cco_templateless_page .chabad_header, .chabad_header {
-            background-blend-mode: normal !important;
-        }
-        .chabad_header div {
-            visibility: hidden;
-        }
-        div.chabad_left_column {
-            background: transparent;
-        }
-        .large_banner, .sPromo-wrap {
-            border: 2px solid #28578b;
-        }
-        .large_banner .bannerCta button {
-            background: #28578b;
-            border: 3px solid #28578b;
-        }
-        .large_banner .big {
-            color: #28578b;
-            font-weight: bold;
-        }
-        .large_banner .wrapper-message {
-            margin-block: 1.5em !important;
-        }
-        .sPromo-wrap .caption {
-            color: black !important;
-        }
-        .sPromo-wrap img {
-            border: 0px !important;
-        }
-        .custom_message .message {
-            color: black !important;
-        }
-        .custom_message .title {
-            color: #28578b !important;
-        }
-        .custom_message .read-more_link a {
-            color: #28578b !important;
-            border: 3px solid #28578b !important;
-        }
-        .custom_message .read-more_link a:hover {
-            background: #28578b !important;
-            color: white !important;
-        }
-        .prepResource-title, .co_calendar_head div, .features_title {
-            font-size: 25pt !important;
-            color: #28578b !important;
-        }
-        .prep-title, .feature_caption a {
-            color: #28578b !important;
-        }
-        .zmanim .zman-1, .zmanim .zman-2 {
-            border-radius: 10px !important;
-            background: #28578b !important;
-            margin: 5px 0px !important;
-        }
-        #co_calendar div.co_calendar_body .item.item.first,
-        #co_calendar div.co_calendar_body .item:nth-child(3),
-        #co_calendar div.co_calendar_body .item:nth-child(6),
-        #co_calendar div.co_calendar_body .item:nth-child(8) {
-            background: #28578b;
-        }
-        #co_calendar div.co_calendar_body .item:nth-child(2),
-        #co_calendar div.co_calendar_body .item:nth-child(4),
-        #co_calendar div.co_calendar_body .item:nth-child(5),
-        #co_calendar div.co_calendar_body .item:nth-child(7) {
-            background: #28578b;
-        }
-        .footer, .footer a {
-            background: #28578b;
-            color: white !important;
-        }
-        .cco_templateless_template a,
-        .div#chabad_head .chabad_navigator_bar,
-        #menu .item,
-        #navigation,
-        #menu a {
-            background: #28578b !important;
-        }
-        #menu a {
-            color: white !important;
-            border: 0px !important;
-        }
-        .selected a {
-            text-decoration: underline !important;
-        }
-        #menu .item {
-            color: transparent !important;
-        }
-        .titleIcon img {
-            width: 125px !important;
-            display: none !important;
-        }
-        .co_calendar_head:before,
-        .pesach-resources .titleIcon {
-            display: none !important;
-        }
-        div#chabad_body_content {
-            background: transparent !important;
-        }
-        .co_calendar_text {
-            background-color: transparent !important;
-        }
-
-        /* Icons */
-        .content-area-parent > .custom_message .title:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/esQg13310306.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .content-area-parent > .custom_message.appeal .title:before {
-            display: none;
-        }
-        #co_calendar:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Vkhp13310307.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .latest_features .features_title.titleIcon:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Xouo13310308.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-
-        @media all and (max-width: 500px) {
-            .chabad_header {
-                height: 200px !important;
-            }
-            .headerTitle {
-                display: none;
-            }
-            .body.section_root .bh {
-                right: 25px !important;
-                color: white !important;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
-
-if ( document.location.href.indexOf('7002850') > -1) {
-const style = document.createElement('style');
-    style.innerHTML = `
-        .cco_templateless_page #chabad_main_content {
-            background: url('https://chabadqueenanne.com/media/images/1331/jzVy13310282.png') !important;
-            background-size: cover !important;
-            background-position: bottom !important;
-        }
-        .footer, .footer a {
-            background-color: #28578b !important;
-            color: white !important;
-        }
-        .chabad_header {
-            background: url('/media/images/1331/DRHp13315981.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-color: #28578b;
-        }
-        .cco_templateless_page .chabad_header, .chabad_header {
-            background-blend-mode: normal !important;
-        }
-        .chabad_header div {
-            visibility: hidden;
-        }
-        div.chabad_left_column {
-            background: transparent;
-        }
-        .large_banner, .sPromo-wrap {
-            border: 2px solid #28578b;
-        }
-        .large_banner .bannerCta button {
-            background: #28578b;
-            border: 3px solid #28578b;
-        }
-        .large_banner .big {
-            color: #28578b;
-            font-weight: bold;
-        }
-        .large_banner .wrapper-message {
-            margin-block: 1.5em !important;
-        }
-        .sPromo-wrap .caption {
-            color: black !important;
-        }
-        .sPromo-wrap img {
-            border: 0px !important;
-        }
-        .custom_message .message {
-            color: black !important;
-        }
-        .custom_message .title {
-            color: #28578b !important;
-        }
-        .custom_message .read-more_link a {
-            color: #28578b !important;
-            border: 3px solid #28578b !important;
-        }
-        .custom_message .read-more_link a:hover {
-            background: #28578b !important;
-            color: white !important;
-        }
-        .prepResource-title, .co_calendar_head div, .features_title {
-            font-size: 25pt !important;
-            color: #28578b !important;
-        }
-        .prep-title, .feature_caption a {
-            color: #28578b !important;
-        }
-        .zmanim .zman-1, .zmanim .zman-2 {
-            border-radius: 10px !important;
-            background: #28578b !important;
-            margin: 5px 0px !important;
-        }
-        #co_calendar div.co_calendar_body .item.item.first,
-        #co_calendar div.co_calendar_body .item:nth-child(3),
-        #co_calendar div.co_calendar_body .item:nth-child(6),
-        #co_calendar div.co_calendar_body .item:nth-child(8) {
-            background: #28578b;
-        }
-        #co_calendar div.co_calendar_body .item:nth-child(2),
-        #co_calendar div.co_calendar_body .item:nth-child(4),
-        #co_calendar div.co_calendar_body .item:nth-child(5),
-        #co_calendar div.co_calendar_body .item:nth-child(7) {
-            background: #28578b;
-        }
-        .footer, .footer a {
-            background: #28578b;
-            color: white !important;
-        }
-        .cco_templateless_template a,
-        .div#chabad_head .chabad_navigator_bar,
-        #menu .item,
-        #navigation,
-        #menu a {
-            background: #28578b !important;
-        }
-        #menu a {
-            color: white !important;
-            border: 0px !important;
-        }
-        .selected a {
-            text-decoration: underline !important;
-        }
-        #menu .item {
-            color: transparent !important;
-        }
-        .titleIcon img {
-            width: 125px !important;
-            display: none !important;
-        }
-        .co_calendar_head:before,
-        .pesach-resources .titleIcon {
-            display: none !important;
-        }
-        div#chabad_body_content {
-            background: transparent !important;
-        }
-        .co_calendar_text {
-            background-color: transparent !important;
-        }
-
-        /* Icons */
-        .content-area-parent > .custom_message .title:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/esQg13310306.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .content-area-parent > .custom_message.appeal .title:before {
-            display: none;
-        }
-        #co_calendar:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Vkhp13310307.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-        .latest_features .features_title.titleIcon:before {
-            content: '';
-            background: url('https://chabadqueenanne.com/media/images/1331/Xouo13310308.png');
-            display: block;
-            width: 75px;
-            height: 75px;
-            background-size: contain;
-            filter: contrast(94%);
-            margin: 0 auto;
-        }
-
-        @media all and (max-width: 500px) {
-            .chabad_header {
-                height: 200px !important;
-            }
-            .headerTitle {
-                display: none;
-            }
-            .body.section_root .bh {
-                right: 25px !important;
-                color: white !important;
-            }
-        }
-    `;
-    document.head.appendChild(style);
-}
