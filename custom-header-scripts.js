@@ -29,12 +29,22 @@
             background-color: #c54d19 !important;
             color: white !important;
         }
-        .chabad_header {
-            background: url('https://chabadqueenanne.com/media/images/1330/Qojh13308783.png');
-            background-size: 100% 100%;
-            background-repeat: no-repeat;
-            background-color: #c54d19;
+		
+        /* Hide the template's default generated header image */
+        .chabad_header img.header-bg-img {
+            display: none !important;
         }
+
+        /* Apply your custom header background */
+        #chabad_head .chabad_header {
+            background-image: url('https://chabadqueenanne.com/media/images/1382/eMry13826670.png') !important;
+			background-repeat: no-repeat !important;
+			background-size: cover !important;
+			background-position: 46% center !important;
+			background-color: #c54d19 !important;
+			height: clamp(360px, 32vw, 525px) !important;
+		}
+		
         .cco_templateless_page .chabad_header, .chabad_header {
             background-blend-mode: normal !important;
         }
