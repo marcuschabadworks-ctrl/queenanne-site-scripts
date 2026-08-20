@@ -37,7 +37,7 @@
 
         /* Apply your custom header background */
         #chabad_head .chabad_header {
-            background-image: url('https://chabadqueenanne.com/media/images/1382/eMry13826670.png') !important;
+            background-image: url('https://chabadqueenanne.com/media/images/1382/XFYi13828222.png') !important;
 			background-repeat: no-repeat !important;
 			background-size: cover !important;
 			background-position: 46% center !important;
