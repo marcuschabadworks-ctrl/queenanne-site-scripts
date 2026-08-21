@@ -251,11 +251,16 @@
         #chabad_head .chabad_header {
             background-image: url('https://www.chabadqueenanne.com/media/images/1382/Ovxs13825476.png') !important;
 			background-repeat: no-repeat !important;
-			background-size: cover !important;
-			background-position: 46% center !important;
-			background-color: #ede3d4 !important;
-			height: clamp(360px, 32vw, 525px) !important;
-		}
+            background-size: cover !important;
+            background-position: 46% center !important;
+            background-color: #c54d19 !important;
+            
+            /* Script 2's responsive aspect-ratio technique */
+            aspect-ratio: 1366 / 400 !important;
+            width: 100% !important;
+            height: auto !important;
+        }
+		
         .cco_templateless_page .chabad_header, .chabad_header {
             background-blend-mode: normal !important;
         }
@@ -395,9 +400,7 @@
         }
 
         @media all and (max-width: 500px) {
-            .chabad_header {
-                height: 200px !important;
-            }
+		
             .headerTitle {
                 display: none;
             }
