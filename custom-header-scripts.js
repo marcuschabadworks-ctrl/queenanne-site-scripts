@@ -188,9 +188,7 @@
         }
 
         @media all and (max-width: 500px) {
-            .chabad_header {
-                height: 200px !important;
-            }
+		
             .headerTitle {
                 display: none;
             }
