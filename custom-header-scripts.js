@@ -265,7 +265,7 @@
             background-blend-mode: normal !important;
         }
         .chabad_header div {
-            visibility: hidden;
+            display: none !important;
         }
         div.chabad_left_column {
             background: transparent;
